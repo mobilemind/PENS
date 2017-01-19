@@ -6,7 +6,7 @@ DOCUMENT No. CMI010
 # Guidelines for Package Exchange Notification Services
 
     VERSION 2.0.0
-	 _Proposed_ RELEASE DATE 2017-March-15  
+     _Proposed_ RELEASE DATE 2017-March-15
     Based on Revision 1.0a released 2006-March-15
 
 FORMATTING NOTES:
@@ -24,20 +24,20 @@ THIS DOCUMENT IS CONTROLLED BY:
     cmi5 Workgroup, as successor to AICC CMI Subcommittee
 
     ALL REVISIONS SHALL BE APPROVED BY THE ABOVE ORGANIZATION PRIOR TO RELEASE.
-    
+
 POINT OF CONTACT:
 
-Tom King  
-cmi5 PENS Workgroup Lead  
+Tom King
+cmi5 PENS Workgroup Lead
 <tking@onpointlearning.com>
- 
+
 FILED UNDER: <https://github.com/AICC/PENS_Spec_Current>
 
 ---
 
-### Specification for Learning Technology—  Package Exchange Notification Services (PENS)
+## Specification for Learning Technology—  Package Exchange Notification Services (PENS)
 
-#### Abstract:
+### Abstract
 
 This specification describes a protocol to support a notification service to
 announce the location of content package(s) that are available for transport.
@@ -49,11 +49,13 @@ related responses. Specifically outside the scope of this specification are
 mechanisms for physical deployment of content packages, content management,
 version control, publication or revocation of content.
 
-#### Keywords:
+#### Keywords
+
 CBT, CMI, cmi5, CMS, cmi5, content management, content package, e-learning,
 LCMS, LMS, notification service, package exchange, PENS, SCORM, xAPI.
 
-#### Revision Notes:
+#### Revision Notes
+
 The PEN 2.0.0 revision focuses on four goals:
 
 1. **Package format updates**: The addition of contemporary package formats
@@ -67,7 +69,8 @@ for SFTP in lieu of FTP.
 and notifications such as SMS, Apple Push Notification Services (APNS),
 Firebase Cloud Messaging (FCM), and Google Cloud Messaging (GCM).
 
-#### Introduction
+### Introduction
+
 The purpose of this specification is to fill a gap that currently exists
 between the creation of content packages by "content authors" and the
 deployment of those content packages on LMSs by "LMS administrators" where
@@ -141,14 +144,14 @@ determined by the recipient. The recipient sets its own policy and procedures,
 and may choose to notify the party that requested delivery of specific events
 as it sees fit to do.
 
-#### Discussion forum
+### Discussion forum
 
 The PENS working group communicates via the Github repository. To view
 PENS-related documents and comment on them, go to:
 
 <https://github.com/AICC/PENS_Spec_Current>
 
-#### Charter Contributors and Organizations
+### Charter Contributors and Organizations
 
 * Tom King (OnPoint Digital)
 * Paul Schneider (domiKnow Learning)
@@ -205,12 +208,12 @@ this specification. For dated references, only the edition cited applies. For
 undated references, the latest edition of the referenced document (including
 any amendments) applies.
 
-RFC 1738, "Uniform Resource Locators (URL)," December 1994.  
-RFC 2368, "The mailto URL scheme," July 1998.  
-RFC 2396, "Uniform Resource Identifiers (URI): Generic Syntax," August 1998.  
-RFC 2616, "Hypertext Transfer Protocol -- HTTP/1.1," June 1999.  
-RFC 2817, "Upgrading to TLS Within HTTP/1.1," May 2000.  
-RFC 2822, "Internet Message Format," April 2001.  
+RFC 1738, "Uniform Resource Locators (URL)," December 1994.
+RFC 2368, "The mailto URL scheme," July 1998.
+RFC 2396, "Uniform Resource Identifiers (URI): Generic Syntax," August 1998.
+RFC 2616, "Hypertext Transfer Protocol -- HTTP/1.1," June 1999.
+RFC 2817, "Upgrading to TLS Within HTTP/1.1," May 2000.
+RFC 2822, "Internet Message Format," April 2001.
 ISO 8601:2000 "Data elements and interchange formats -- Information interchange
 -- Representation of dates and times," Edition 2.
 
@@ -221,7 +224,7 @@ ISO 8601:2000 "Data elements and interchange formats -- Information interchange
 For purposes of this specification, the following terms and definitions apply.
 The AICC Glossary [A3], should be referenced for terms not defined here.
 
-##### Content Package:
+#### Content Package
 
 The data structures and files used to provide interoperability of digital
 e-learning material with authoring tools, LMS products and run-time
@@ -233,7 +236,7 @@ constitute the e-learning material. Often the components of a content package
 are combined into a single-file archive format such as a PKZip v2.04g,
 conformant to RFC1951.
 
-##### Client (Sending) System:
+#### Client (Sending) System
 
 A system that initiates a PENS request and ensures that a conformant content
 package is available for delivery. Examples of Client Systems include Authoring
@@ -241,7 +244,8 @@ Tools, Learning Content Management Systems, Content Management Systems,
 Middleware Systems, Assessment Systems and other systems that can publish
 content.
 
-##### Learning Content Management System (LCMS):
+#### Learning Content Management System (LCMS)
+
 A computer system that includes and combines the functions of a Content
 Repository or Content Management System and a Learning Management System. The
 Content Repository functions manage the content and permit locating stored
@@ -249,13 +253,14 @@ content, authoring new content, attaching metadata to content, managing
 versions of content, etc. The Learning Management System functions administer
 courses to learners.
 
-##### Learning Management System (LMS):
+#### Learning Management System (LMS)
 
 A computer system that may include the capabilities to register learners,
 schedule learning resources, control and guide the learning process, analyze
-and report learner performance, and schedule and track learners. 
+and report learner performance, and schedule and track learners.
 
-##### Target (Receiving) System:
+#### Target (Receiving) System
+
 A system that receives PENS requests and is responsible for the transfer and
 import of content packages. The target system is also responsible for validating
 responses, returning error messages and delivering receipts and alerts.
@@ -331,7 +336,7 @@ implementation-defined.
 
 ### 5. Conceptual Model: Informative
 
-##### Synopsis of the package exchange notification services (PENS) model:
+#### Synopsis of Package Exchange Notification Services (PENS) Model
 
 * A notification is sent from a content source (such as an authoring tool, CMS
 or LCMS) to a Target System (central deployment or repository system such as a
@@ -341,7 +346,7 @@ that is available for transport.
 * The notification represents the first step in initiating the Target System
 workflow to transfer and import a content package.
 
-##### Notification mechanism details: 
+##### Notification Mechanism Details
 
 * Suggested notification mechanism binding:  HTTP-GET or HTTP-POST of
 name-value pairs (see Appendix A, "Binding of PENS Message to a URI").
@@ -355,8 +360,8 @@ name-value pairs (see Appendix A, "Binding of PENS Message to a URI").
 >longer than the server can handle. (Servers should be cautious about
 >depending on URI lengths above 255 bytes, because some older client or proxy
 >implementations may not properly support these lengths.)" Also see RFC 2817,
->Upgrading to TLS within HTTP/1.1, as an update to RFC 2616.  
->The definitive reference for HTTP-GET and HTTP-POST is:  
+>Upgrading to TLS within HTTP/1.1, as an update to RFC 2616.
+>The definitive reference for HTTP-GET and HTTP-POST is:
 ><http://www.w3.org/Protocols/Overview.html>
 
 * Notification modes: can be server-to-server, or server via browser window to
@@ -379,7 +384,7 @@ FTP and FTPS (secure FTP) protocols and the related access credentials.
 * Password: If required by the Client's system, the notification may include a
 password needed to access the content package.
 
-##### Responsibilities of recipient of notification (Target System):
+##### Responsibilities of Recipient of Notification (Target System)
 
 * The notification recipient (herein referred to as the "server") shall be
 capable of supporting both HTTP and HTTPS protocols for the "pull" or "get"
@@ -391,22 +396,18 @@ return the appropriate error message regarding the requested protocol.
 * Once the content package is retrieved, store or deploy it (for example, make
 available via a catalog of resources for a course).
 
-##### Illustrative use case:
+##### Illustrative Use Case
 
-A use case for this specification is shown in Figure 1. 
+A use case for this specification is shown in Figure 1.
 
 * Client (authoring system) creates and prepares a content package.
-* Client sends a PENS message to Target System (e.g., an LMS), announcing the
-availability of the content package.
+* Client sends a PENS message to Target System (e.g., an LMS).
 * Target System acknowledges PENS message.
 * Target System collects and processes content package.
-
 
 ![Figure 1 - PENS Use Case Phases](./PENS_v2.0.x_UseCasePhases.png "Figure 1 - PENS Use Case Phases")
 
 ###### Figure 1— Conceptual model, Content System-to-Target System communication
-
-
 
 #### 5.1 Description of use case
 
@@ -419,8 +420,8 @@ transfers a content package.
 Assume a content author has created some learning content. A content package
 has been prepared and staged by the Client (the authoring system) at a transfer
 URL (an HTTP site or FTP site) from where it can be collected. The Target
-System that may ultimately retrieve the client's content package is typically a
-CMS, LMS or LCMS product.
+System that may ultimately retrieve the client's content package is typically
+a CMS, LMS or LCMS product.
 
 >NOTE:
 >The Client may use FTP or other mechanisms to transfer content to a staging
@@ -459,12 +460,12 @@ best practices, HTTPS is the preferred protocol for package retrieval.) After
 attempting to retrieve a package, the server sends a response to the specified
 receipt URL, either acknowledging successful collection of the package or
 reporting an error. Receipt responses can be sent to one or more email
-addresses if so specified in the PENS message. 
+addresses if so specified in the PENS message.
 
 The format of the receipt message sent to the specified receipt URL is not
 fully defined, but should include relevant data from the inbound Collect
 Command, such as the package type, package id, and client, plus the receipt
-message itself. 
+message itself.
 
 If an error has occurred, an error message should be sent to the receipt URL.
 The `pens-data` portion of the error message could include extended information
@@ -495,7 +496,7 @@ email addresses.
 The format of the alert message(s) sent to the specified alert URL is not fully
 defined, but should include relevant data from the inbound Collect Command,
 such as the package type, package id, and client, plus the alert message
-itself. 
+itself.
 
 ---
 
@@ -533,8 +534,6 @@ in the subsections indicated.
 | alerts               | No       | Character string                                      | 6.2.16      |
 | vendor-data          | No       | Character string                                      | 6.2.17      |
 
-
-
 ASSUMPTIONS/NOTES:
 
 >1. The authoring tool has a method for sending the messages/password to the
@@ -547,7 +546,7 @@ ASSUMPTIONS/NOTES:
 >acknowledgement or an error message to a receipt URI.
 >6. How the package is processed upon retrieval is left to the Target System
 >implementation. Notifications of processing errors or events shall be sent to
->the alert URI. 
+>the alert URI.
 >7. Acknowledgment and Error responses shall be in the format specified in 6.3,
 >Response and Error Messages. (Format is similar to AICC HACP error responses.)
 >8. This specification does not define an extension mechanism for the data
@@ -560,8 +559,8 @@ ASSUMPTIONS/NOTES:
 This is a sample URL for a system that might receive and process a valid PENS
 command.
 
-
 ##### target system URL
+
 <!-- Table 2 - target system URL -->
 | target system URL        | Information                                                                                 |
 | ------------------------ | ------------------------------------------------------------------------------------------- |
@@ -571,15 +570,16 @@ command.
 
 #### 6.2 PENS message elements
 
-##### _Reserved words_:
+##### _Reserved words_
 
 The following words are not utilized in this version of PENS, but are reserved
-for use in subsequent versions as potential candidates for PENS commands. 
+for use in subsequent versions as potential candidates for PENS commands.
 
 * Delete
 * Revise
 
 ##### pens-version
+
 <!-- Table 3 - pens-version -->
 | pens-version                                                         | Information                                                                                                       |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -588,6 +588,7 @@ for use in subsequent versions as potential candidates for PENS commands.
 | <!-- empty by intent -->                                             | **Sample element value**: `2.0.0`                                                                                 |
 
 ##### command
+
 <!-- Table 4 - command -->
 | command                                                      | Information                                                                                                                                                                                                                    |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -597,8 +598,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | <!-- empty by intent -->                                     | `collect`: To retrieve a content package from a designated server.                                                                                                                                                             |
 | <!-- empty by intent -->                                     | **Sample element value**: `collect`                                                                                                                                                                                            |
 
+##### package-type
 
-##### package-type	
 <!-- Table 5 - package-type -->
 | package-type                                                 | Information                                                                                                                         |
 | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -607,7 +608,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | <!-- empty by intent -->                                     | **Vocabulary**:<br>aicc-pkg<br>scorm-pif<br>lms-qti                                                                                 |
 | <!-- empty by intent -->                                     | **Sample element value**: `aicc-pkg`                                                                                                |
 
-##### package-type-version	
+##### package-type-version
+
 <!-- Table 6 - package-type-version -->
 | package-type-version            | Information                                                                                                                                                                                    |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -615,7 +617,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Values defined by associated package spec releases, such as ADL SCORM, AICC CMI, or IMS QTI specifications.                                                                   |
 | <!-- empty by intent -->        | **Sample element value**: `1.0`                                                                                                                                                                |
 
-##### package-format	
+##### package-format
+
 <!-- Table 7 - package-format -->
 | package-format                  | Information                                                                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -623,7 +626,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Values defined by package archive format or resource types. Reserved values include: `zip`, `url`, `jar`, `war`, and `xml`. |
 | <!-- empty by intent -->        | **Sample element value**: `zip`                                                                                                              |
 
-##### package-id	
+##### package-id
+
 <!-- Table 8 - package-id -->
 | package-id                                 | Information                                                                                                                                                                                                                                                             |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -631,7 +635,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: A URI according to RFC 2396 | **Value space**: Any URI according to RFC 2396 with the additional requirement that the URI shall be constructed such that its namespace is the URL associated with the product or service generating the ID and the id of the package is unique within that namespace. |
 | <!-- empty by intent -->                   | **Sample element value**: `http://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc`                                                                                                                                                                                       |
 
-##### package-url	
+##### package-url
+
 <!-- Table 9 - package-url -->
 | package-url                            | Information                                                                                                                               |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -639,7 +644,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: URL, URL-encoded string | **Value space**: Valid, fully qualified URL, including transport protocol (e.g., `http://` or `ftp://`) and filename including extension. |
 | <!-- empty by intent -->               | **Sample element value**: `http://myauthoringtool/mycontentpackage.zip`                                                                   |
 
-##### package-url-user-id	
+##### package-url-user-id
+
 <!-- Table 10 - package-url-user-id -->
 | package-url-user-id             | Information                                                                |
 | ------------------------------- | -------------------------------------------------------------------------- |
@@ -647,7 +653,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Null string or character string.                          |
 | <!-- empty by intent -->        | **Sample element value**: (null string)                                    |
 
-##### package-url-account	
+##### package-url-account
+
 <!-- Table 11 - package-url-account -->
 | package-url-account             | Information                                                                |
 | ------------------------------- | -------------------------------------------------------------------------- |
@@ -655,7 +662,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Null string or character string.                          |
 | <!-- empty by intent -->        | **Sample element value**: (null string)                                    |
 
-##### package-url-password	
+##### package-url-password
+
 <!-- Table 12 - package-url-password -->
 | package-url-password            | Information                                                                 |
 | ------------------------------- | --------------------------------------------------------------------------- |
@@ -663,7 +671,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Null string or character string.                           |
 | <!-- empty by intent -->        | **Sample element value**: (null string)                                     |
 
-##### package-url-expiry	
+##### package-url-expiry
+
 <!-- Table 13 - package-url-expiry -->
 | package-url-expiry                              | Information                                                                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -671,7 +680,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: ISO 8601 format expressed as UTC | **Value space**: Null string or character string.                                                                   |
 | <!-- empty by intent -->                        | **Sample element value**: `2016-07-24T02:51:29`                                                                     |
 
-##### client	
+##### client
+
 <!-- Table 14 - client -->
 | client                          | Information                                                                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -679,7 +689,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Null string or character string.                                                                                            |
 | <!-- empty by intent -->        | **Sample element value**: `Storyline2`                                                                                                       |
 
-##### system-user-id	
+##### system-user-id
+
 <!-- Table 15 - system-user-id -->
 | system-user-id                  | Information                                                              |
 | ------------------------------- | ------------------------------------------------------------------------ |
@@ -687,7 +698,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Null string or character string.                        |
 | <!-- empty by intent -->        | **Sample element value**: `tk007`                                        |
 
-##### system-password	
+##### system-password
+
 <!-- Table 16 - system-password -->
 | system-password                 | Information                                                                                                                                                                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -695,7 +707,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Null string or character string.                                                                                                                                                                                            |
 | <!-- empty by intent -->        | **Sample element value**: (null string)                                                                                                                                                                                                      |
 
-##### receipt	
+##### receipt
+
 <!-- Table 17 - receipt -->
 | receipt                         | Information                                                                                                                                                                                                    |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -703,7 +716,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | **Data type**: Character string | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822.                                                                                                                            |
 | <!-- empty by intent -->        | **Sample element value**: `mailto:name@domain.com`                                                                                                                                                             |
 
-##### alerts	
+##### alerts
+
 <!-- Table 18 - alerts -->
 | alerts                          | Information                                                                                                                                                                                                                                                                                                            |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -712,7 +726,8 @@ for use in subsequent versions as potential candidates for PENS commands.
 | <!-- empty by intent -->        | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822.                                                                                                                                                                                                                                    |
 | <!-- empty by intent -->        | **Sample element value**: `mailto:name@domain.com`                                                                                                                                                                                                                                                                     |
 
-##### vendor-data	
+##### vendor-data
+
 <!-- Table 19 - vendor-data -->
 | vendor-data                     | Information                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -726,7 +741,7 @@ for use in subsequent versions as potential candidates for PENS commands.
 
 Various communication problems can occur between the client offering the
 package and the potential receiving (collecting) systems. Responses and error
-messages provide a means of acknowledge and communication of processing errors. 
+messages provide a means of acknowledge and communication of processing errors.
 
 ##### PENS Responses
 
@@ -780,11 +795,10 @@ communication is in Appendix A.
 | 0           | No error, successful                                  |
 | other       | See error as listed in Table 3 - Specific Error Codes |
 
-
 Error codes are integers represented as character strings, in the range of 0 to
 65,535. Unspecified error codes in the range of 0 to 10000 are reserved for
 use in future editions of the PENS specification. Error codes with numbers
-10000 and above are reserved for implementation-defined error messages. 
+10000 and above are reserved for implementation-defined error messages.
 
 >NOTE:
 >The error code numbering scheme was established such that PENS codes start at
@@ -845,7 +859,6 @@ allow some degree of package processing (may not be fatal errors).
 | 2010        | client parameter missing                  | Message incomplete; client submitting package invalid or not specified                                                       |
 | 2011        | receipt parameter missing                 | Message incomplete; where to send response invalid or not specified                                                          |
 
-
 ---
 
 ## Appendix A:  Binding of PENS to a URI
@@ -902,18 +915,18 @@ message element values, properly URI-encoded, are shown in the table below.
 >NOTE:
 >For the URI binding, the best practice is to use HTTP POST to issue the PENS
 >message. Use of POST avoids a potential issue with two query separators (“?”)
->in the PENS message URI when the target system URL itself uses the format--  
->  `<scheme>://<authority><path>?<query>`  
+>in the PENS message URI when the target system URL itself uses the format--
+>`<scheme>://<authority><path>?<query>`
 >(example: Target System URL is
 >`http://acmelearning.lms.com?partition=staging1`).
 
-  &nbsp;  
+&nbsp;
 
 >NOTE:
 >For cases when either the alert or the receipt value specifies the `mailto:`
 >protocol the following best practice is recommended for the corresponding
 >return command message in email format.
-
+>
 >1. Use a valid email address of an account associated with the system issuing
 >the response for the sender and reply-to email addresses
 >2. Use a suitable human-readable subject line for the email.
@@ -937,7 +950,7 @@ message element values, properly URI-encoded, are shown in the table below.
 In the examples that follow, line breaks are not significant; line breaks
 appear only for readability.
 
-###### Example of collect command (sample *not* URL encoded, _for readability_)
+##### Example Collect Command (*not* URL encoded, _for readability_)
 
   ```text
 http://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
@@ -950,7 +963,9 @@ http://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
 &alerts=mailto:name@domain.com
   ```
 
-###### Example of HTML link for collect command, with the processing/results in a new blank browser window (_URL encoded_)
+###### Example of HTML link for collect command (_URL encoded_)
+
+Note that the processing/results would appear in a new blank browser window.
 
   ```html
 <a href="http://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
@@ -998,9 +1013,9 @@ Descriptive Text representing specific error situations are listed in Section
 | `error=`      | _pens error code number_ `<CR LF>` |
 | `error-text=` | _pens error description_ `<CR LF>` |
 | `version=`    | _pens spec version_ `<CR LF>`      |
-| `pens-data=`  | _pens data_ … <br> _end of buffer_ |
+| `pens-data=`  | _pens data_ _..._ _end-of-buffer_  |
 
-###### Example:
+##### Example Response
 
   ```text
 error=0
@@ -1011,10 +1026,10 @@ pens-data=
 
 The `<value>` data is in plain text, and is not URL-encoded.
 
-The end-of-line marker is CR LF (carriage return linefeed) per RFC 2616: HTTP/1.1. 
+The end-of-line marker is CR LF (carriage return linefeed) per RFC 2616: HTTP/1.1.
 
 >CR = <US-ASCII CR, carriage return (13)>
-
+>
 >LF = <US-ASCII LF, linefeed (10)>
 
 The hexadecimal values for CRLF acronyms for ASCII systems are `OD`, `OA`;
@@ -1036,14 +1051,14 @@ the successful deployment of a package from an Author to an LMS.
 #### 2.2 Actors
 
 * Author - `http://author.com/pens.cgi` - Creates packages to send to LMS
-* LMS - `http://lms.com/pens.cgi` - Receives packages from Author to deploy
-and deliver
+* LMS - `http://lms.com/pens.cgi` - Receives packages from Author to deploy and deliver
 
 #### 2.3 Stages
 
 1. Author creates package and places on web server
 
-2. Author sends COLLECT command to LMS passing URL of package for collection  
+2. Author sends COLLECT command to LMS passing URL of package for collection
+
     ````text
 http://lms.com/pens.cgi?command=collect&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
@@ -1053,19 +1068,20 @@ http://lms.com/pens.cgi?command=collect&pens-version=1.0.0
 &receipt=http%3A%2F%2Fauthor.com%2Fpens.cgi
 &alerts=http%3A%2Fauthor.com%2Fpens.cgi
     ````
-    
+
 3. LMS returns RESPONSE to acknowledge that it understood the COLLECT command
+
     ```text
-error=0  
-error-text=collect command received and understood  
-version=1.0.0  
+error=0
+error-text=collect command received and understood
+version=1.0.0
 pens-data=
     ```
-    
+
 4. LMS collects package from Author's URL
 
-5. LMS sends RECEIPT command to Author to say that the package has
-successfully been collected
+5. LMS sends RECEIPT command to Author to say that the package has successfully been collected
+
     ```text
 http://author.com/pens.cgi?command=receipt&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
@@ -1074,19 +1090,20 @@ http://author.com/pens.cgi?command=receipt&pens-version=1.0.0
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20collected
     ```
-    
-6. Author returns RESPONSE to acknowledge that it understood the RECEIPT
-command
+
+6. Author returns RESPONSE to acknowledge that it understood the RECEIPT command
+
     ```text
 error=0
 error-text=receipt command received and understood
 version=1.0.0
 pens-data=
     ```
-    
+
 7. LMS opens package
 
 8. LMS sends ALERT command to Author to say that the package has been opened
+
     ```text
 http://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
@@ -1095,19 +1112,20 @@ http://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20opened
     ```
-    
+
 9. Author returns RESPONSE to acknowledge that it understood the ALERT command
+
     ```text
 error=0
 error-text=alert command received and understood
 version=1.0.0
 pens-data=
     ```
-    
+
 10. LMS deploys package
 
-11. LMS sends ALERT command to Author to say that the package has been
-deployed
+11. LMS sends ALERT command to Author to say that the package has been deployed
+
     ```text
 http://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
@@ -1116,9 +1134,9 @@ http://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20deployed
     ```
-    
-12. Author returns RESPONSE to acknowledge that it understood the ALERT
-command
+
+12. Author returns RESPONSE to acknowledge that it understood the ALERT command
+
     ```text
 error=0
 error-text=alert command received and understood
@@ -1127,7 +1145,6 @@ pens-data=
     ```
 
 Conceptual end of the stages of communication.
-
 
 ---
 
