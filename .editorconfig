@@ -1,0 +1,46 @@
+; # EditorConfig is awesome: http://EditorConfig.org
+
+; # top-most EditorConfig file
+root=false
+
+; DEFAULTS
+[*]
+insert_final_newline=true
+charset=utf-8
+indent_style=tab
+tab_width=2
+indent_size=2
+trim_trailing_whitespace=true
+end_of_line=lf
+coding=utf-8
+
+; INI
+[*.{editorconfig,ini}]
+mode=ini
+
+; Markdown
+; # 4 space indentation, leave trailing whitespace alone, set mode for BBedit
+[*.{markdown,md}]
+indent_style=space
+tab_width=4
+indent_size=4
+trim_trailing_whitespace=false
+mode=markdown
+
+; Code Climate
+; # 2 space indentation, set mode for BBedit
+[.codeclimate.yml]
+indent_style=space
+mode=yaml
+
+; Travis
+; # 2 space indentation, set mode for BBedit
+[.travis.yml]
+indent_style=space
+mode=yaml
+
+; YAML
+; # 2 space indentation, set mode for BBedit
+[*.yml]
+indent_style=space
+mode=yaml
