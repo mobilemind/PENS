@@ -1,4 +1,3 @@
-
 # PENS (Package Exchange Notification Services) Specification - Current Working Draft
 
 ---
