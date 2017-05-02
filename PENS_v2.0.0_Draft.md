@@ -1,13 +1,13 @@
+# Package Exchange Notification Services (PENS)
+
 11 October 2016
 PENS v2.0.0 _**DRAFT**_
 
 DOCUMENT No. CMI010
 
-# Guidelines for Package Exchange Notification Services
-
 > VERSION 2.0.0
 >
-> _Proposed_ RELEASE DATE 2017-May-15
+> _Proposed_ RELEASE DATE 2017-June-15
 >
 > Based on Revision 1.0a released 2006-March-15
 
@@ -39,7 +39,9 @@ FILED UNDER: <https://github.com/AICC/PENS_Spec_Current>
 
 ---
 
-### Specification for Learning Technology—  Package Exchange Notification Services (PENS)
+## Specification for Learning Technology
+
+### Package Exchange Notification Services (PENS)
 
 #### Abstract
 
@@ -63,15 +65,15 @@ LCMS, LMS, notification service, package exchange, PENS, SCORM, xAPI.
 The PEN 2.0.0 revision focuses on four goals:
 
 1. **Package format updates**: The addition of contemporary package formats
-such as xAPI and cmi5.
+   such as xAPI and cmi5.
 2. **Batch or multi-package processing**: Streamlining for the transfer and
-notification processing of multiple packages.
+   notification processing of multiple packages.
 3. **Permissions and security**: More contemporary approaches to permissions,
-such as OAuth. Explicitly indicated preference for HTTPS in lieu of HTTP, and
-for SFTP in lieu of FTP.
+   such as OAuth. Explicitly indicated preference for HTTPS in lieu of HTTP,
+   and for SFTP in lieu of FTP.
 4. **Mobile-enabled alerts and notifications**: Enabling modern mobile alerts
-and notifications such as SMS, Apple Push Notification Services (APNS),
-Firebase Cloud Messaging (FCM), and Google Cloud Messaging (GCM).
+   and notifications such as SMS, Apple Push Notification Services (APNS),
+   Firebase Cloud Messaging (FCM), and Google Cloud Messaging (GCM).
 
 #### Introduction
 
@@ -89,64 +91,29 @@ system to announce that a content package is available and ready for transport
 from a location that it will provide.
 
 The acronym for this specification is PENS: Package Exchange Notification
-Services. The PENS data model may be extended in the future to include commands
-in addition to the current `collect` command, which is the first service to be
-defined. Data elements and value spaces can be extended as driven by needs and
-determined in the future by the community of users.
+Services. The PENS data model may be extended in the future to include
+commands in addition to the current `collect` command, which is the first
+service to be defined. Data elements and value spaces can be extended as
+driven by needs and determined in the future by the community of users.
 
 The scope of the specification is specifically constrained to the notification
-request, package transfer and related responses. PENS addresses neither version
-control nor content management; there are no PENS commands to require the
-recipient to remove, replace, or update existing packages or elements of
+request, package transfer and related responses. PENS addresses neither
+version control nor content management; there are no PENS commands to require
+the recipient to remove, replace, or update existing packages or elements of
 packages. PENS provides a contact URI (e.g., email address) for the recipient
 to contact the requestor, but PENS does not prescribe a specific workflow for
 processing of the transferred package. PENS does not require notifications to
-the requestor, other than the specific obligatory confirmation. For
-illustrative purposes, consider a courier service as a conceptual model for
-PENS. Two parties may use the courier service as a means The purpose of this
-specification is to fill a gap that currently exists between the creation of
-content packages by "content authors" and the deployment of those content
-packages on LMSs by "LMS administrators" where learners may ultimately have
-access to them. Without a specification that addresses this gap, the concept of
-shared content is incomplete: LMSs do not have a means to obtain newly
-developed, revised or updated content.
+the requestor, other than the specific obligatory confirmation.
 
-The purpose of this specification is to fill a gap that currently exists
-between the creation of content packages by "content authors" and the
-deployment of those content packages on LMSs by "LMS administrators" where
-learners may ultimately have access to them. Without a specification that
-addresses this gap, the concept of shared content is incomplete: LMSs do not
-have a means to obtain newly developed, revised or updated content.
-
-This specification aims to provide a mechanism whereby content that is capable
-of being shared can be deployed and thus actually shared in practice. It
-describes a notification scheme that will enable a content creator's authoring
-system to announce that a content package is available and ready for transport
-from a location that it will provide.
-
-The acronym for this specification is PENS: Package Exchange Notification
-Services. The PENS data model may be extended in the future to include commands
-in addition to the current `collect` command, which is the first service to be
-defined. Data elements and value spaces can be extended as driven by needs and
-determined in the future by the community of users.
-
-The scope of the specification is specifically constrained to the notification
-request, package transfer and related responses. PENS addresses neither version
-control nor content management; there are no PENS commands to require the
-recipient to remove, replace, or update existing packages or elements of
-packages. PENS provides a contact URI (e.g., email address) for the recipient
-to contact the requestor, but PENS does not prescribe a specific workflow for
-processing of the transferred package. PENS does not require notifications to
-the requestor, other than the specific obligatory confirmation. For
-illustrative purposes, consider a courier service as a conceptual model for
-PENS. Two parties may use the courier service as a means of requesting pick-up,
-performing transfer, and confirming delivery. However, it is not incumbent on
-the courier to enforce particular post-processing by the recipient. The
-recipient may decide to use the parcel as notification to remove something, add
-the parcel to stock, or replace existing stock. All post-delivery processing is
-determined by the recipient. The recipient sets its own policy and procedures,
-and may choose to notify the party that requested delivery of specific events
-as it sees fit to do.
+For illustrative purposes, consider a courier service as a conceptual model
+for PENS. Two parties may use the courier service as a means of requesting
+pick-up, performing transfer, and confirming delivery. However, it is not
+incumbent on the courier to enforce particular post-processing by the
+recipient. The recipient may decide to use the parcel as notification to
+remove something, add the parcel to stock, or replace existing stock. All
+post-delivery processing is determined by the recipient. The recipient sets
+its own policy and procedures, and may choose to notify the party that
+requested delivery of specific events as it sees fit to do.
 
 #### Discussion forum
 
@@ -177,31 +144,32 @@ deliver content.
 
 This specification describes a data model and binding to facilitate the
 transport of e-learning content between content publishing systems and systems
-for the delivery of e-learning such as a learning management system (LMS). This
-specification describes a notification scheme that is a communication between
-the content publishing (or authoring) system and the server managing delivery.
-It includes data elements to identify the package format and location. The
-specification does not specify how the systems must behave after the package is
-transferred. The scope is specifically constrained to the notification request,
-package transfer and related responses. Specifically outside the scope of this
-specification are mechanisms for deployment of content packages, content
-management, version control, publication or revocation of content. The
-specification does not provide any mechanism for systems to search for content
-packages. This specification relies on content package formats specified by the
-Advanced Distributed Learning (ADL) Initiative and the AICC; the definition of
-content package formats is outside the scope of this specification. The binding
-in Appendix A is modeled on AICC HACP mechanisms as defined in the AICC data
-model for Computer Managed Instruction (CMI).
+for the delivery of e-learning such as a learning management system (LMS).
+This specification describes a notification scheme that is a communication
+between the content publishing (or authoring) system and the server managing
+delivery. It includes data elements to identify the package format and
+location. The specification does not specify how the systems must behave after
+the package is transferred. The scope is specifically constrained to the
+notification request, package transfer and related responses. Specifically
+outside the scope of this specification are mechanisms for deployment of
+content packages, content management, version control, publication or
+revocation of content. The specification does not provide any mechanism for
+systems to search for content packages. This specification relies on content
+package formats specified by the Advanced Distributed Learning (ADL)
+Initiative and the AICC; the definition of content package formats is outside
+the scope of this specification. The binding in Appendix A is modeled on AICC
+HACP mechanisms as defined in the AICC data model for Computer Managed
+Instruction (CMI).
 
 #### 1.2 Purpose
 
 The purpose of this specification is to provide a means to notify targeted
 systems of the existence of content packages that may be of interest to those
 systems. The notification scheme defines the format of the message that
-describes the available content package and from where it can be retrieved. The
-intent is to simplify content authoring and deployment by supporting automation
-of the transfer of e-learning content between authoring or publishing systems
-and systems for managing or deploying content.
+describes the available content package and from where it can be retrieved.
+The intent is to simplify content authoring and deployment by supporting
+automation of the transfer of e-learning content between authoring or
+publishing systems and systems for managing or deploying content.
 
 ---
 
@@ -224,8 +192,8 @@ RFC 2817, "Upgrading to TLS Within HTTP/1.1," May 2000.
 
 RFC 2822, "Internet Message Format," April 2001.
 
-ISO 8601:2000 "Data elements and interchange formats -- Information interchange
--- Representation of dates and times," Edition 2.
+ISO 8601:2000 "Data elements and interchange formats -- Information
+interchange -- Representation of dates and times," Edition 2.
 
 ---
 
@@ -234,6 +202,8 @@ ISO 8601:2000 "Data elements and interchange formats -- Information interchange
 For purposes of this specification, the following terms and definitions apply.
 The AICC Glossary [A3], should be referenced for terms not defined here.
 
+#### 3.0 Terms
+
 ##### Content Package
 
 The data structures and files used to provide interoperability of digital
@@ -241,18 +211,18 @@ e-learning material with authoring tools, LMS products and run-time
 environments. A content package typically contains one or more files that list
 all of the resources included in the package; data to describe the content
 structure; data describing prerequisite or sequencing rules, descriptive
-metadata, and the supporting files (and/or pointers to external resources) that
-constitute the e-learning material. Often the components of a content package
-are combined into a single-file archive format such as a PKZip v2.04g,
+metadata, and the supporting files (and/or pointers to external resources)
+that constitute the e-learning material. Often the components of a content
+package are combined into a single-file archive format such as a PKZip v2.04g,
 conformant to RFC1951.
 
 ##### Client (Sending) System
 
 A system that initiates a PENS request and ensures that a conformant content
-package is available for delivery. Examples of Client Systems include Authoring
-Tools, Learning Content Management Systems, Content Management Systems,
-Middleware Systems, Assessment Systems and other systems that can publish
-content.
+package is available for delivery. Examples of Client Systems include
+Authoring Tools, Learning Content Management Systems, Content Management
+Systems, Middleware Systems, Assessment Systems and other systems that can
+publish content.
 
 ##### Learning Content Management System (LCMS)
 
@@ -272,12 +242,12 @@ and report learner performance, and schedule and track learners.
 ##### Target (Receiving) System
 
 A system that receives PENS requests and is responsible for the transfer and
-import of content packages. The target system is also responsible for validating
-responses, returning error messages and delivering receipts and alerts.
-Examples of Target Systems include Learning Management Systems, Learning
-Content Management Systems, Content Management Systems, Content Repositories,
-Middleware and any other system that can import content for the purpose of
-managing or delivering content.
+import of content packages. The target system is also responsible for
+validating responses, returning error messages and delivering receipts and
+alerts. Examples of Target Systems include Learning Management Systems,
+Learning Content Management Systems, Content Management Systems, Content
+Repositories, Middleware and any other system that can import content for the
+purpose of managing or delivering content.
 
 #### 3.1 Abbreviations and acronyms
 
@@ -316,21 +286,21 @@ Conformance to this specification is discussed in 4.1 – 4.3.
 In this specification, "shall" is to be interpreted as a requirement on an
 implementation; "shall not" is to be interpreted as a prohibition.
 
-### 4.1 Sending implementations (Client Systems)
+#### 4.1 Sending implementations (Client Systems)
 
 A conforming sending implementation shall send data instances that conform to
 this specification and accept responses from target systems as defined in this
 specification. A conforming sending implementation shall send all required
 elements
 
-### 4.2 Receiving implementations (Target Systems)
+#### 4.2 Receiving implementations (Target Systems)
 
 A conforming receiving implementation shall accept data instances that conform
 to this specification and generate the required, valid responses. Data
 instances that conform to this specification include all required elements and
 may include optional elements.
 
-### 4.3 Implementation-defined values
+#### 4.3 Implementation-defined values
 
 The processing and meanings of values that are not specified by this
 specification (e.g., sentinel, missing, and empty values) are
@@ -346,20 +316,21 @@ implementation-defined.
 
 ### 5. Conceptual Model: Informative
 
-##### Synopsis of the package exchange notification services (PENS) model
+#### Synopsis of the package exchange notification services (PENS) model
 
 * A notification is sent from a content source (such as an authoring tool, CMS
-or LCMS) to a Target System (central deployment or repository system such as a
-CMS, LCMS or LMS).
-* The notification announces the availability and location of a content package
-that is available for transport.
+  or LCMS) to a Target System (central deployment or repository system such as
+  a CMS, LCMS or LMS).
+* The notification announces the availability and location of a content
+  package that is available for transport.
 * The notification represents the first step in initiating the Target System
-workflow to transfer and import a content package.
+  workflow to transfer and import a content package.
 
-##### Notification mechanism details
+#### Notification mechanism details
 
 * Suggested notification mechanism binding:  HTTP-GET or HTTP-POST of
-name-value pairs (see Appendix A, "Binding of PENS Message to a URI").
+  name-value pairs over HTTPS (see Appendix A, "Binding of PENS Message to a
+  URI").
 
 >NOTE:
 >According to RFC 2616 (June 1999), section 3.2.1, "The HTTP protocol does not
@@ -375,98 +346,102 @@ name-value pairs (see Appendix A, "Binding of PENS Message to a URI").
 ><http://www.w3.org/Protocols/Overview.html>
 
 * Notification modes: can be server-to-server, or server via browser window to
-server (HTTP-GET only).
+  server (HTTP-GET only).
 * Responsibilities of sender: The content source (herein referred to as the
-"Client") shall arrange for the content package to be made available on a
-staging server. The Client shall be capable of specifying a URI that uses HTTP,
-or HTTPS (secure HTTP) protocols. The Client may optionally support specifying
-FTP and FTPS (secure FTP) protocols and the related access credentials.
+  "Client") shall arrange for the content package to be made available on a
+  staging server. The Client shall be capable of specifying a URI that uses
+  either the preferred HTTPS (secure HTTP) protocol or HTTP. The Client may
+  optionally support specifying the SFTP or FTP protocols and the related
+  access credentials. Note that if SFTP or FTP is used, PENS best practices
+  strongly advocate SFTP (secure FTP using TLS) protocol instead of FTP.
 
 >NOTE:
 >It is assumed that the particular configuration of the staging server may be
 >determined by a third party and therefore is not controlled by the content
 >developer (Client). It is further assumed that if content is staged on the
->server via FTP that it does not have to be retrieved via FTP, but could be
+>server via SFTP that it does not have to be retrieved via SFTP, but could be
 >retrieved via an HTTP alias. Such provisions allow cases such as the transfer
->to the staging location via FTP and retrieval via an HTTP equivalent or alias
->to the same location.
+>to the staging location via SFTP and retrieval via an HTTP equivalent or
+>alias to the same location.
 
 * Password: If required by the Client's system, the notification may include a
-password needed to access the content package.
+  password needed to access the content package.
 
-##### Responsibilities of recipient of notification (Target System)
+#### Responsibilities of recipient of notification (Target System)
 
 * The notification recipient (herein referred to as the "server") shall be
-capable of supporting both HTTP and HTTPS protocols for the "pull" or "get"
-transfer of the content package from the URI provided by the Client. The server
-may optionally support the retrieval of packages specified with FTP or FTPS
-protocols and appropriate access credentials. In such cases where the server
-does not support one or more optional protocols, the server is obligated to
-return the appropriate error message regarding the requested protocol.
+  capable of supporting both HTTP and HTTPS protocols for the "pull" or "get"
+  transfer of the content package from the URI provided by the Client. The
+  server may optionally support the retrieval of packages specified with SFTP
+  or FTP protocols and appropriate access credentials. In such cases where the
+  server does not support one or more optional protocols, the server is
+  obligated to return the appropriate error message regarding the requested
+  protocol.
 * Once the content package is retrieved, store or deploy it (for example, make
-available via a catalog of resources for a course).
+  available via a catalog of resources for a course).
 
-##### Illustrative use case
+#### Illustrative use case
 
 A use case for this specification is shown in Figure 1.
 
 * Client (authoring system) creates and prepares a content package.
 * Client sends a PENS message to Target System (e.g., an LMS), announcing the
-availability of the content package.
+  availability of the content package.
 * Target System acknowledges PENS message.
 * Target System collects and processes content package.
 
 ![Figure 1 - PENS Use Case Phases](./PENS_v2.0.x_UseCasePhases.png "Figure 1 - PENS Use Case Phases")
 
-###### Figure 1— Conceptual model, Content System-to-Target System communication
+##### Figure 1— Conceptual model, Content System-to-Target System communication
 
 #### 5.1 Description of use case
 
 The diagram (Figure 1 above) illustrates the phases that need to occur between
-a Client System and a Target System to issue and process a collect command that
-transfers a content package.
+a Client System and a Target System to issue and process a collect command
+that transfers a content package.
 
 ##### Preparing the content package and issuing a PENS command
 
 Assume a content author has created some learning content. A content package
-has been prepared and staged by the Client (the authoring system) at a transfer
-URL (an HTTP site or FTP site) from where it can be collected. The Target
-System that may ultimately retrieve the client's content package is typically a
-CMS, LMS or LCMS product.
+has been prepared and staged by the Client (the authoring system) at a
+transfer URL (an HTTPS URL or SFTP URL) from where it can be collected. The
+Target System that may ultimately retrieve the client's content package is
+typically a CMS, LMS or LCMS product.
 
 >NOTE:
->The Client may use FTP or other mechanisms to transfer content to a staging
->location, yet specify an HTTP URI equivalent as the package-url for retrieval.
->There is no requirement that the retrieval protocol must match the method used
->to stage the content. Content staged on the server via FTP could be retrieved
->via an HTTP alias. Best practices indicate that HTTP is the preferred
->transport protocol for the package-url.
+>The Client may use SFTP or other mechanisms to transfer content to a staging
+>location, yet specify an HTTP URI equivalent as the package-url for
+>retrieval. There is no requirement that the retrieval protocol must match the
+>method used to stage the content. Content staged on the server via SFTP could
+>be retrieved via an HTTP alias. Best practices indicate that HTTPS is the
+>preferred >transport protocol for the package-url.
 
-The Client System then sends a message that contains the PENS "collect" command
-to the Target System (CMS, LMS, LCMS, etc.) via HTTPS. This Package Exchange
-Notification Services (PENS) message includes the elements detailed in the
-table in 6.2. These PENS elements provide information about the type of content
-package, where it is available, how to communicate with the client and other
-parameters. The vendor-data element is available for optional data defined by
-the target system implementation. This implementation-specific data might be
-used to provide information from the content provider about how a target system
-is to act on a package after retrieval. Next, the Target System (e.g., LMS)
-validates the PENS message (transfer URL, content package expiration date, any
-required access credentials or passwords, etc.) and sends an HTTPS response back
-to the Client System. (An HTTP error code is sent if there was a problem with
-the PENS message. See 6.3, Response and Error Messages.) This response simply
-acknowledges that the PENS collect command was understood; it does not imply
-that processing to actually retrieve the package has commenced.
+The Client System then sends a message that contains the PENS "collect"
+command to the Target System (CMS, LMS, LCMS, etc.) via HTTPS. This Package
+Exchange Notification Services (PENS) message includes the elements detailed
+in the table in 6.2. These PENS elements provide information about the type of
+content package, where it is available, how to communicate with the client and
+other parameters. The vendor-data element is available for optional data
+defined by the target system implementation. This implementation-specific data
+might be used to provide information from the content provider about how a
+target system is to act on a package after retrieval. Next, the Target System
+(e.g., LMS) validates the PENS message (transfer URL, content package
+expiration date, any required access credentials or passwords, etc.) and sends
+an HTTPS response back to the Client System. (An HTTP error code is sent if
+there was a problem with the PENS message. See 6.3, Response and Error
+Messages.) This response simply acknowledges that the PENS collect command was
+understood; it does not imply that processing to actually retrieve the package
+has commenced.
 
 >NOTE:
->In another scenario, the Client System could open a browser window to send the
->PENS message, and the HTTP response from the Target System would be returned
->to there.
+>In another scenario, the Client System could open a browser window to send
+>the PENS message, and the HTTP response from the Target System would be
+returned to there.
 
 ##### Collecting the content package
 
 If a server receives a valid collect command, the server can attempt to
-retrieve the package from the transfer URL via FTP, HTTP or HTTPS. (NOTE: per
+retrieve the package from the transfer URL via SFTP, HTTPS or HTTP. (NOTE: per
 best practices, HTTPS is the preferred protocol for package retrieval.) After
 attempting to retrieve a package, the server sends a response to the specified
 receipt URL, either acknowledging successful collection of the package or
@@ -479,35 +454,35 @@ Command, such as the package type, package id, and client, plus the receipt
 message itself.
 
 If an error has occurred, an error message should be sent to the receipt URL.
-The `pens-data` portion of the error message could include extended information
-about the nature of the error (such as a stack trace of what happened during
-the attempted communication). See Section 6.3 Response and Error Messages for
-details.
+The `pens-data` portion of the error message could include extended
+information about the nature of the error (such as a stack trace of what
+happened during the attempted communication). See Section 6.3 Response and
+Error Messages for details.
 
 ##### Opening and deploying a content package
 
-The recipient system will proceed with internal processing, such as opening the
-package, approving the content for release, listing the new content in a
+The recipient system will proceed with internal processing, such as opening
+the package, approving the content for release, listing the new content in a
 catalog, staging the content on a deployment server, etc.
 
 >NOTE:
 >Internal processing phases, workflow and alert triggers are
 >implementation-specific and are outside the scope of this specification.
 >However, the ‘vendor-data' may supply useful hints from the content provider
->about how particular recipient systems are to act on the package subsequent to
->retrieval.
+>about how particular recipient systems are to act on the package subsequent
+>to retrieval.
 
 If an alert URL has been provided, the server may send alerts to the Client
 about the status of the package as it progresses through these various
-processes. For example, an "alert" message may be sent to the content authoring
-management staff (the Client) so that where the retrieved content is being
-cataloged, deployed, etc., can be monitored. Alerts can be sent to one or more
-email addresses.
+processes. For example, an "alert" message may be sent to the content
+authoring management staff (the Client) so that where the retrieved content is
+being cataloged, deployed, etc., can be monitored. Alerts can be sent to one
+or more email addresses.
 
-The format of the alert message(s) sent to the specified alert URL is not fully
-defined, but should include relevant data from the inbound Collect Command,
-such as the package type, package id, and client, plus the alert message
-itself.
+The format of the alert message(s) sent to the specified alert URL is not
+fully defined, but should include relevant data from the inbound Collect
+Command, such as the package type, package id, and client, plus the alert
+message itself.
 
 ---
 
@@ -548,22 +523,24 @@ in the subsections indicated.
 ASSUMPTIONS/NOTES:
 
 >1. The authoring tool has a method for sending the messages/password to the
->target system URL; automatic discovery of the package by LMSs is out of scope.
+>   target system URL; automatic discovery of the package by LMSs is out of
+>   scope.
 >2. Messages/passwords are sent as clear text; encryption and security issues
->are out of scope.
+>   are out of scope.
 >3. PENS message focuses on the transport and overall package type.
 >4. Receiving system sends an HTTP acknowledgement of message receipt.
 >5. After a package transfer is achieved, receiver responds with an
->acknowledgement or an error message to a receipt URI.
+>   acknowledgement or an error message to a receipt URI.
 >6. How the package is processed upon retrieval is left to the Target System
->implementation. Notifications of processing errors or events shall be sent to
->the alert URI.
->7. Acknowledgment and Error responses shall be in the format specified in 6.3,
->Response and Error Messages. (Format is similar to AICC HACP error responses.)
+>   implementation. Notifications of processing errors or events shall be sent
+>   to the alert URI.
+>7. Acknowledgment and Error responses shall be in the format specified in
+>   6.3, Response and Error Messages. (Format is similar to AICC HACP error
+>   responses.)
 >8. This specification does not define an extension mechanism for the data
->model. Implementers may create additional data models for package exchange
->notification. Such models may be used to augment this model to support
->different communities of practice.
+>   model. Implementers may create additional data models for package exchange
+>   notification. Such models may be used to augment this model to support
+>   different communities of practice.
 
 #### 6.1 Target system for PENS message
 
@@ -573,11 +550,11 @@ command.
 ##### target system URL
 
 <!-- Table 2 - target system URL -->
-| target system URL        | Information                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------- |
-| **Required**: Yes        | **Description**: Fully qualified URL of target system that will perform processing.         |
-| **Data type**: URL       | **Value space**: Valid, fully qualified URI, including transport protocol (e.g., `http://`) |
-| <!-- empty by intent --> | **Example**: `http://acmelearning.lms.com`                                                  |
+| target system URL        | Information                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------------- |
+| **Required**: Yes        | **Description**: Fully qualified URL of target system that will perform processing.          |
+| **Data type**: URL       | **Value space**: Valid, fully qualified URI, including transport protocol (e.g., `https://`) |
+| <!-- empty by intent --> | **Example**: `https://acmelearning.lms.com`                                                  |
 
 #### 6.2 PENS message elements
 
@@ -644,16 +621,16 @@ for use in subsequent versions as potential candidates for PENS commands.
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Required**: Yes                          | **Description**: Unique identifier required for package; package-id shall be a URI consisting of two parts, a globally unique namespace taken from the URL associated with the product or the service generating the ID plus an ID unique within the service itself.    |
 | **Data type**: A URI according to RFC 2396 | **Value space**: Any URI according to RFC 2396 with the additional requirement that the URI shall be constructed such that its namespace is the URL associated with the product or service generating the ID and the id of the package is unique within that namespace. |
-| <!-- empty by intent -->                   | **Sample element value**: `http://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc`                                                                                                                                                                                       |
+| <!-- empty by intent -->                   | **Sample element value**: `https://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc`                                                                                                                                                                                      |
 
 ##### package-url
 
 <!-- Table 9 - package-url -->
-| package-url                            | Information                                                                                                                               |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Required**: Yes                      | **Description**: Location of package archive ready for transfer/action.                                                                   |
-| **Data type**: URL, URL-encoded string | **Value space**: Valid, fully qualified URL, including transport protocol (e.g., `http://` or `ftp://`) and filename including extension. |
-| <!-- empty by intent -->               | **Sample element value**: `http://myauthoringtool/mycontentpackage.zip`                                                                   |
+| package-url                            | Information                                                                                                                                 |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes                      | **Description**: Location of package archive ready for transfer/action.                                                                     |
+| **Data type**: URL, URL-encoded string | **Value space**: Valid, fully qualified URL, including transport protocol (e.g., `https://` or `sftp://`) and filename including extension. |
+| <!-- empty by intent -->               | **Sample element value**: `https ://myauthoringtool/mycontentpackage.zip`                                                                   |
 
 ##### package-url-user-id
 
@@ -756,17 +733,17 @@ messages provide a means of acknowledge and communication of processing errors.
 
 ##### PENS Responses
 
-The receipt and alert URI may use `http://` or `mailto:` protocols. If the HTTP
-protocol is used, the system receiving the message shall respond with an HTTP
-response. A response is not required for `mailto:` URI for either receipt or
-alert.
+The receipt and alert URI may use `https://` or `mailto:` protocols. If the
+HTTP protocol is used, the system receiving the message shall respond with an
+HTTP response. A response is not required for `mailto:` URI for either receipt
+or alert.
 
 Sample responses below are informative only and do not represent requirement
 specifications. See Appendix A for URI binding information specifications.
 
 ###### _Sample HTTP response to COLLECT command:_
 
-  ```text
+  ```Text
 error=0
 error-text=collect command received and understood
 version=1.0.0
@@ -775,7 +752,7 @@ pens-data=
 
 ###### _Sample HTTP response to RECEIPT command:_
 
-  ```text
+  ```Text
 error=0
 error-text=receipt command received and understood
 version=1.0.0
@@ -784,7 +761,7 @@ pens-data=
 
 ###### _Sample HTTP response to ALERT command:_
 
-  ```text
+  ```Text
 error=0
 error-text=alert command received and understood
 version=1.0.0
@@ -793,12 +770,12 @@ pens-data=
 
 ##### PENS Error Messages
 
-An error code shall be used to acknowledge successful processing or to indicate
-a processing error. In the case of a processing error, the error code shall
-indicate the class of error as specifically as possible using either a PENS
-specific error code or an error code from the underlying protocol, as indicated
-in table1, table 2, and table 3 below. The binding specification for error code
-communication is in Appendix A.
+An error code shall be used to acknowledge successful processing or to
+indicate a processing error. In the case of a processing error, the error code
+shall indicate the class of error as specifically as possible using either a
+PENS specific error code or an error code from the underlying protocol, as
+indicated in table1, table 2, and table 3 below. The binding specification for
+error code communication is in Appendix A.
 
 <!-- Table 20 — "Response Error Codes" -->
 | Code Number | Error Text                                            |
@@ -806,8 +783,8 @@ communication is in Appendix A.
 | 0           | No error, successful                                  |
 | other       | See error as listed in Table 3 - Specific Error Codes |
 
-Error codes are integers represented as character strings, in the range of 0 to
-65,535. Unspecified error codes in the range of 0 to 10000 are reserved for
+Error codes are integers represented as character strings, in the range of 0
+to 65,535. Unspecified error codes in the range of 0 to 10000 are reserved for
 use in future editions of the PENS specification. Error codes with numbers
 10000 and above are reserved for implementation-defined error messages.
 
@@ -830,8 +807,8 @@ use in future editions of the PENS specification. Error codes with numbers
 | 2000 to 9999 | PENS parameter errors                         |
 
 Rationale: Errors are listed in increasing specificity; systems are to respond
-with highest numbered error encountered. Error codes designated as warnings may
-allow some degree of package processing (may not be fatal errors).
+with highest numbered error encountered. Error codes designated as warnings
+may allow some degree of package processing (may not be fatal errors).
 
 <!-- insert "Table 22— PENS-Specific Error Codes" here -->
 | Code Number | Name                                      | Descriptive Text                                                                                                             |
@@ -843,7 +820,7 @@ allow some degree of package processing (may not be fatal errors).
 | 1301        | General retrieve error                    | Unable to retrieve package                                                                                                   |
 | 1302        | Secure HTTP protocol not supported        | Unable to retrieve package via HTTPS                                                                                         |
 | 1304        | FTP protocol not supported                | Unable to retrieve package via FTP                                                                                           |
-| 1306        | Secure FTP protocol not supported         | Unable to retrieve package via FTPS                                                                                          |
+| 1306        | Secure FTP protocol not supported         | Unable to retrieve package via SFTP                                                                                          |
 | 1310        | Invalid or unresponsive package URL       | Unable to retrieve package at specified URL due to error in URL or lack of response from URL                                 |
 | 1312        | Invalid package access credentials        | Unable to retrieve package at specified URL due to error with access credential for package URL                              |
 | 1320        | Warning - invalid expiry date             | Expiration date is non-null and in an improper format                                                                        |
@@ -903,34 +880,34 @@ The entire URI shall be URI-encoded as per RFC 1738 and RFC 2396. Examples of
 message element values, properly URI-encoded, are shown in the table below.
 
 <!-- insert "Table #23 A-1 — Examples of Binding of Individual PENS Message Elements" here -->
-| PENS Message Element Name | Example URI Binding                                                        | Sub-section |
-| ------------------------- | -------------------------------------------------------------------------- | ----------- |
-| `pens-version`            | `pens-version=1.0.0`                                                       | 6.2.1       |
-| `command`                 | `command=collect`                                                          | 6.2.2       |
-| `package-type`            | `package-type=aicc-pkg`                                                    | 6.2.3       |
-| `package-type-version`    | `package-type-version=1.0`                                                 | 6.2.4       |
-| `package-format`          | `package-format=zip`                                                       | 6.2.5       |
-| `package-id`              | `package-id=http%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc` | 6.2.6       |
-| `package-url`             | `package-url=http%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip`          | 6.2.7       |
-| `package-url-user-id`     | `package-url-user-id=`                                                     | 6.2.8       |
-| `package-url-account`     | `package-url-account=`                                                     | 6.2.9       |
-| `package-url-password`    | `package-url-password=`                                                    | 6.2.10      |
-| `package-url-expiry`      | `package-url-expiry=2005-07-22T06%3A51%3A29`                               | 6.2.11      |
-| `client`                  | `client=Authorware7`                                                       | 6.2.12      |
-| `system-user-id`          | `system-user-id=tk007`                                                     | 6.2.13      |
-| `system-password`         | `system-password=`                                                         | 6.2.14      |
-| `receipt`                 | `receipt=mailto%3Aname%40domain.com`                                       | 6.2.15      |
-| `alerts`                  | `alerts=mailto%3Aname%40domain.com`                                        | 6.2.16      |
-| `vendor-data`             | `vendor-data=preview-mode%3Ainstructor`                                    | 6.2.17      |
+| PENS Message Element Name | Example URI Binding                                                         | Sub-section |
+| ------------------------- | --------------------------------------------------------------------------- | ----------- |
+| `pens-version`            | `pens-version=1.0.0`                                                        | 6.2.1       |
+| `command`                 | `command=collect`                                                           | 6.2.2       |
+| `package-type`            | `package-type=aicc-pkg`                                                     | 6.2.3       |
+| `package-type-version`    | `package-type-version=1.0`                                                  | 6.2.4       |
+| `package-format`          | `package-format=zip`                                                        | 6.2.5       |
+| `package-id`              | `package-id=https%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc` | 6.2.6       |
+| `package-url`             | `package-url=https%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip`          | 6.2.7       |
+| `package-url-user-id`     | `package-url-user-id=`                                                      | 6.2.8       |
+| `package-url-account`     | `package-url-account=`                                                      | 6.2.9       |
+| `package-url-password`    | `package-url-password=`                                                     | 6.2.10      |
+| `package-url-expiry`      | `package-url-expiry=2005-07-22T06%3A51%3A29`                                | 6.2.11      |
+| `client`                  | `client=Authorware7`                                                        | 6.2.12      |
+| `system-user-id`          | `system-user-id=tk007`                                                      | 6.2.13      |
+| `system-password`         | `system-password=`                                                          | 6.2.14      |
+| `receipt`                 | `receipt=mailto%3Aname%40domain.com`                                        | 6.2.15      |
+| `alerts`                  | `alerts=mailto%3Aname%40domain.com`                                         | 6.2.16      |
+| `vendor-data`             | `vendor-data=preview-mode%3Ainstructor`                                     | 6.2.17      |
 
 >NOTE:
 >For the URI binding, the best practice is to use HTTP POST to issue the PENS
 >message. Use of POST avoids a potential issue with two query separators (“?”)
 >in the PENS message URI when the target system URL itself uses the format--
-> `<scheme>://<authority><path>?<query>`
+>`<scheme>://<authority><path>?<query>`
 >
 >(For example: Target System URL is
->`http://acmelearning.lms.com?partition=staging1`).
+>`https://acmelearning.lms.com?partition=staging1`).
 
 &nbsp;
 
@@ -940,72 +917,74 @@ message element values, properly URI-encoded, are shown in the table below.
 >return command message in email format.
 >
 >1. Use a valid email address of an account associated with the system issuing
->the response for the sender and reply-to email addresses
+>   the response for the sender and reply-to email addresses
 >2. Use a suitable human-readable subject line for the email.
 >3. Place any optional, implementation-specific information for the recipient
->in the body of the message before the PENS response data, Use a carriage
->return linefeed pair to separate this information from the PENS response data.
->4. Include all required data element names and the corresponding values of the
->PENS response in the body of the email. Preferred formatting is a data element
->name followed by "=" then the corresponding value with a carriage return line
->feed pair after the value.
+>   in the body of the message before the PENS response data, Use a carriage
+>   return linefeed pair to separate this information from the PENS response
+>   data.
+>4. Include all required data element names and the corresponding values of
+>   the PENS response in the body of the email. Preferred formatting is a data
+>   element name followed by "=" then the corresponding value with a carriage
+>   return line feed pair after the value.
 >5. As indicated in Section 5.1, the format of the alert message is not fully
->defined, but should include relevant data from the inbound Collect Command,
->such as the package type, package id, and client, plus the alert message value
->itself.
+>   defined, but should include relevant data from the inbound Collect Command,
+>   such as the package type, package id, and client, plus the alert message
+>   value itself.
 >6. The email format is not fully defined. Implementers are encouraged to use
->the `https:` protocol for automated processing of inbound alerts and
->receipts; machine-based automated processing of inbound email is discouraged.
+>   the `https:` protocol for automated processing of inbound alerts and
+>   receipts; machine-based automated processing of inbound email is
+>   discouraged.
 
 #### 1.1 Examples of PENS Messages Bound to a URI
 
 In the examples that follow, line breaks are not significant; line breaks
 appear only for readability.
 
-###### Example of collect command (sample *not* URL encoded, _for readability_)
+##### Example of collect command (sample *not* URL encoded, _for readability_)
 
-  ```text
-http://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
+  ```Text
+https://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
 &package-type=aicc-pkg&package-type-version=1.0&package-format=zip
-&package-id=http://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc
-&package-url=http:// myauthoringtool/mycontentpackage.zip
+&package-id=https://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc
+&package-url=https://myauthoringtool/mycontentpackage.zip
 &package-url-user-id=&package-url-account=&package-url-password=
 &package-url-expiry=2005-07-22T06:51:29&client=Authorware7
 &system-user-id=tk007&system-password=&receipt=mailto:name@domain.com
 &alerts=mailto:name@domain.com
   ```
 
-###### Example of HTML link for collect command, with the processing/results in a new blank browser window (_URL encoded_)
+##### Example of HTML link for collect command, with the processing/results in a new blank browser window (_URL encoded_)
 
-  ```html
-<a href="http://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
+  ```HTML
+<a href="https://acmelearning.lms.com/pens?pens-version=1.0.0&command=collect
 &package-type=aicc-pkg&package-type-version=1.0&package-format=zip
-&package-id=http%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc
-&package-url=http%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip
+&package-id=https%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc
+&package-url=https%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip
 &package-url-user-id=&package-url-account=&package-url-password=
 &package-url-expiry=2005-07-22T06%3A51%3A29&client=Authorware7
 &system-user-id=tk007&system-password=&receipt=mailto%3Aname%40domain.com
 &alerts=mailto%3Aname%40domain.com" target="_blank">Submit Package</a>
   ```
 
-###### Example of PENS receipt command (_URL encoded_)
+##### Example of PENS receipt command (_URL encoded_)
 
-  ```text
-http://author.com/pens.cgi?command=receipt&pens-version=1.0.0
+  ```Text
+https://author.com/pens.cgi?command=receipt&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
-&package-id=http%3A%2F%2Fmyurl.com%3A994646572378864600-1085069139609
-&package-url=http%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
+&package-id=https%3A%2F%2Fmyurl.com%3A994646572378864600-1085069139609
+&package-url=https%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20collected
   ```
 
-###### Example of PENS alert command (_URL encoded_)
+##### Example of PENS alert command (_URL encoded_)
 
-  ```text
-http://author.com/pens.cgi?command=alert&pens-version=1.0.0
+  ```Text
+https://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
-&package-id=http%3A%2F%2Fmyurl.com%3A994646572378864600-1085069139609
-&package-url=http%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
+&package-id=https%3A%2F%2Fmyurl.com%3A994646572378864600-1085069139609
+&package-url=https%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20deployed
   ```
@@ -1025,9 +1004,9 @@ Descriptive Text representing specific error situations are listed in Section
 | `version=`    | _pens spec version_ `<CR LF>`      |
 | `pens-data=`  | _pens data_ … <br> _end of buffer_ |
 
-###### Example Response
+##### Example Response
 
-  ```text
+  ```Text
 error=0
 error-text=
 version=1.0.0
@@ -1036,7 +1015,8 @@ pens-data=
 
 The `<value>` data is in plain text, and is not URL-encoded.
 
-The end-of-line marker is CR LF (carriage return linefeed) per RFC 2616: HTTP/1.1.
+The end-of-line marker is CR LF (carriage return linefeed) per RFC 2616:
+HTTP/1.1.
 
 > CR = <US-ASCII CR, carriage return (13)>
 >
@@ -1046,7 +1026,7 @@ The hexadecimal values for CRLF acronyms for ASCII systems are `OD`, `OA`;
 hexadecimal mapping for Unicode systems is `OxOD`, `OxOA` (per Unicode
 Technical Report #13, "Unicode Newline Guidelines").
 
-For http responses, the content type in the HTTP content header should be
+For HTTP responses, the content type in the HTTP content header should be
 `Content: text/plain` with the `<CR><LF>` pairs as indicated.
 
 ---
@@ -1060,104 +1040,100 @@ the successful deployment of a package from an Author to an LMS.
 
 #### 2.2 Actors
 
-* Author - `http://author.com/pens.cgi` - Creates packages to send to LMS
-* LMS - `http://lms.com/pens.cgi` - Receives packages from Author to deploy
-and deliver
+* Author - `https://author.com/pens.cgi` - Creates packages to send to LMS
+* LMS - `https://lms.com/pens.cgi` - Receives packages from Author to deploy
+  and deliver
 
 #### 2.3 Stages
 
 1. Author creates package and places on web server
-
 2. Author sends COLLECT command to LMS passing URL of package for collection
 
-    ````text
-http://lms.com/pens.cgi?command=collect&pens-version=1.0.0
+  ```Text
+https://lms.com/pens.cgi?command=collect&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
-&package-id=http%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
-&package-url=http%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
+&package-id=https%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
+&package-url=https%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=Author
-&receipt=http%3A%2F%2Fauthor.com%2Fpens.cgi
-&alerts=http%3A%2Fauthor.com%2Fpens.cgi
-    ````
+&receipt=https%3A%2F%2Fauthor.com%2Fpens.cgi
+&alerts=https%3A%2Fauthor.com%2Fpens.cgi
+  ```
 
 3. LMS returns RESPONSE to acknowledge that it understood the COLLECT command
 
-    ```text
+  ```Text
 error=0
 error-text=collect command received and understood
 version=1.0.0
 pens-data=
-    ```
+  ```
 
 4. LMS collects package from Author's URL
-
 5. LMS sends RECEIPT command to Author to say that the package has
-successfully been collected
+   successfully been collected
 
-    ```text
-http://author.com/pens.cgi?command=receipt&pens-version=1.0.0
+  ```Text
+https://author.com/pens.cgi?command=receipt&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
-&package-id=http%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
-&package-url=http%3A%2F2Fauthor.com%2Fpackages%2F1085069139609.zip
+&package-id=https%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
+&package-url=https%3A%2F2Fauthor.com%2Fpackages%2F1085069139609.zip
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20collected
-    ```
+  ```
 
 6. Author returns RESPONSE to acknowledge that it understood the RECEIPT
-command
+   command
 
-    ```text
+  ```Text
 error=0
 error-text=receipt command received and understood
 version=1.0.0
 pens-data=
-    ```
+  ```
 
 7. LMS opens package
-
 8. LMS sends ALERT command to Author to say that the package has been opened
 
-    ```text
-http://author.com/pens.cgi?command=alert&pens-version=1.0.0
+  ```Text
+https://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
-&package-id=http%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
-&package-url=http%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
+&package-id=https%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
+&package-url=https%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20opened
-    ```
+  ```
 
 9. Author returns RESPONSE to acknowledge that it understood the ALERT command
 
-    ```text
+  ```Text
 error=0
 error-text=alert command received and understood
 version=1.0.0
 pens-data=
-    ```
+  ```
 
 10. LMS deploys package
-
 11. LMS sends ALERT command to Author to say that the package has been
-deployed
+    deployed
 
-    ```text
-http://author.com/pens.cgi?command=alert&pens-version=1.0.0
+  ```Text
+https://author.com/pens.cgi?command=alert&pens-version=1.0.0
 &package-type=scorm-pif&package-type-version=1.2&package-format=zip
-&package-id=http%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
-&package-url=http%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
+&package-id=https%3A%2F%2Fwww.author.com%3A994646572378864600-1085069139609
+&package-url=https%3A%2F%2Fauthor.com%2Fpackages%2F1085069139609.zip
 &package-url-expiry=2005-05-20T16%3A05%3A39Z&client=LMS&error=0
 &error-text=package%20sucessfully%20deployed
-    ```
+  ```
 
 12. Author returns RESPONSE to acknowledge that it understood the ALERT
-command
+    command
 
-    ```text
+  ```Text
 error=0
 error-text=alert command received and understood
 version=1.0.0
 pens-data=
-    ```
+  ```
 
 Conceptual end of the stages of communication.
 
@@ -1165,7 +1141,8 @@ Conceptual end of the stages of communication.
 
 ## Bibliography
 
-[A1]  AICC CMI001, CMI Guidelines For Interoperability, Version 3.4, April 2001.
+[A1]  AICC CMI001, CMI Guidelines For Interoperability, Version 3.4, April
+2001.
 
 [A2]  SCORM – <http://www.adlnet.org>
 
