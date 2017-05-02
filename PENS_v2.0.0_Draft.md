@@ -39,9 +39,9 @@ FILED UNDER: <https://github.com/AICC/PENS_Spec_Current>
 
 ---
 
-## Specification for Learning Technology
+## Package Exchange Notification Services (PENS) for Learning Technology
 
-### Package Exchange Notification Services (PENS)
+### Specification Summary
 
 #### Abstract
 
@@ -249,7 +249,7 @@ Learning Content Management Systems, Content Management Systems, Content
 Repositories, Middleware and any other system that can import content for the
 purpose of managing or delivering content.
 
-#### 3.1 Abbreviations and acronyms
+#### 3.1 Abbreviations and Acronyms
 
 AICC:  Aviation Industry CBT Committee
 
@@ -332,17 +332,16 @@ implementation-defined.
   name-value pairs over HTTPS (see Appendix A, "Binding of PENS Message to a
   URI").
 
->NOTE:
->According to RFC 2616 (June 1999), section 3.2.1, "The HTTP protocol does not
->place any a priori limit on the length of a URI. Servers MUST be able to
->handle the URI of any resource they serve, and SHOULD be able to handle URIs
->of unbounded length if they provide GET-based forms that could generate such
->URIs. A server SHOULD return 414 (Request-URI Too Long) status if a URI is
->longer than the server can handle. (Servers should be cautious about
->depending on URI lengths above 255 bytes, because some older client or proxy
->implementations may not properly support these lengths.)" Also see RFC 2817,
->Upgrading to TLS within HTTP/1.1, as an update to RFC 2616.
->The definitive reference for HTTP-GET and HTTP-POST is:
+>NOTE: According to RFC 2616 (June 1999), section 3.2.1, "The HTTP protocol
+>does not place any a priori limit on the length of a URI. Servers MUST be
+>able to handle the URI of any resource they serve, and SHOULD be able to
+>handle URIs of unbounded length if they provide GET-based forms that could
+>generate such URIs. A server SHOULD return 414 (Request-URI Too Long) status
+>if a URI is longer than the server can handle. (Servers should be cautious
+>about depending on URI lengths above 255 bytes, because some older client or
+>proxy implementations may not properly support these lengths.)" Also see RFC
+>2817, Upgrading to TLS within HTTP/1.1, as an update to RFC 2616. The
+>definitive reference for HTTP-GET and HTTP-POST is:
 ><http://www.w3.org/Protocols/Overview.html>
 
 * Notification modes: can be server-to-server, or server via browser window to
@@ -355,14 +354,13 @@ implementation-defined.
   access credentials. Note that if SFTP or FTP is used, PENS best practices
   strongly advocate SFTP (secure FTP using TLS) protocol instead of FTP.
 
->NOTE:
->It is assumed that the particular configuration of the staging server may be
->determined by a third party and therefore is not controlled by the content
->developer (Client). It is further assumed that if content is staged on the
->server via SFTP that it does not have to be retrieved via SFTP, but could be
->retrieved via an HTTP alias. Such provisions allow cases such as the transfer
->to the staging location via SFTP and retrieval via an HTTP equivalent or
->alias to the same location.
+>NOTE: It is assumed that the particular configuration of the staging server
+>may be determined by a third party and therefore is not controlled by the
+>content developer (Client). It is further assumed that if content is staged
+>on the server via SFTP that it does not have to be retrieved via SFTP, but
+>could be retrieved via an HTTP alias. Such provisions allow cases such as the
+>transfer to the staging location via SFTP and retrieval via an HTTP
+>equivalent or alias to the same location.
 
 * Password: If required by the Client's system, the notification may include a
   password needed to access the content package.
@@ -408,9 +406,8 @@ transfer URL (an HTTPS URL or SFTP URL) from where it can be collected. The
 Target System that may ultimately retrieve the client's content package is
 typically a CMS, LMS or LCMS product.
 
->NOTE:
->The Client may use SFTP or other mechanisms to transfer content to a staging
->location, yet specify an HTTP URI equivalent as the package-url for
+>NOTE: The Client may use SFTP or other mechanisms to transfer content to a
+>staging location, yet specify an HTTP URI equivalent as the package-url for
 >retrieval. There is no requirement that the retrieval protocol must match the
 >method used to stage the content. Content staged on the server via SFTP could
 >be retrieved via an HTTP alias. Best practices indicate that HTTPS is the
@@ -433,10 +430,9 @@ Messages.) This response simply acknowledges that the PENS collect command was
 understood; it does not imply that processing to actually retrieve the package
 has commenced.
 
->NOTE:
->In another scenario, the Client System could open a browser window to send
->the PENS message, and the HTTP response from the Target System would be
-returned to there.
+>NOTE: In another scenario, the Client System could open a browser window to
+>send the PENS message, and the HTTP response from the Target System would be
+>returned to that browser window.
 
 ##### Collecting the content package
 
@@ -465,8 +461,7 @@ The recipient system will proceed with internal processing, such as opening
 the package, approving the content for release, listing the new content in a
 catalog, staging the content on a deployment server, etc.
 
->NOTE:
->Internal processing phases, workflow and alert triggers are
+>NOTE: Internal processing phases, workflow and alert triggers are
 >implementation-specific and are outside the scope of this specification.
 >However, the ‘vendor-data' may supply useful hints from the content provider
 >about how particular recipient systems are to act on the package subsequent
@@ -520,10 +515,10 @@ in the subsections indicated.
 | alerts               | No       | Character string                                      | 6.2.16      |
 | vendor-data          | No       | Character string                                      | 6.2.17      |
 
-ASSUMPTIONS/NOTES:
-
+>ASSUMPTIONS/NOTES:
+>
 >1. The authoring tool has a method for sending the messages/password to the
->   target system URL; automatic discovery of the package by LMSs is out of
+>   target system URL; automatic discovery of the package by an LMS is out of
 >   scope.
 >2. Messages/passwords are sent as clear text; encryption and security issues
 >   are out of scope.
@@ -788,11 +783,10 @@ to 65,535. Unspecified error codes in the range of 0 to 10000 are reserved for
 use in future editions of the PENS specification. Error codes with numbers
 10000 and above are reserved for implementation-defined error messages.
 
->NOTE:
->The error code numbering scheme was established such that PENS codes start at
->1000 to avoid collision with established error codes for underlying protocols
->(such as 400 series HTTP error codes). These underlying codes shall be used
->when they are indicative of the error encountered.
+>NOTE: The error code numbering scheme was established such that PENS codes
+>start at 1000 to avoid collision with established error codes for underlying
+>protocols (such as 400 series HTTP error codes). These underlying codes shall
+>be used when they are indicative of the error encountered.
 
 <!-- insert "Table 21 — Classification of Error Codes" here -->
 | Range        | Error Type                                    |
@@ -900,21 +894,19 @@ message element values, properly URI-encoded, are shown in the table below.
 | `alerts`                  | `alerts=mailto%3Aname%40domain.com`                                         | 6.2.16      |
 | `vendor-data`             | `vendor-data=preview-mode%3Ainstructor`                                     | 6.2.17      |
 
->NOTE:
->For the URI binding, the best practice is to use HTTP POST to issue the PENS
->message. Use of POST avoids a potential issue with two query separators (“?”)
->in the PENS message URI when the target system URL itself uses the format--
->`<scheme>://<authority><path>?<query>`
+>NOTE: For the URI binding, the best practice is to use HTTP POST to issue the
+>PENS message. Use of POST avoids a potential issue with two query separators
+>(“?”) in the PENS message URI when the target system URL itself uses the
+>format-- `<scheme>://<authority><path>?<query>`
 >
 >(For example: Target System URL is
 >`https://acmelearning.lms.com?partition=staging1`).
 
-&nbsp;
+&nbsp; <!-- &nbsp is formatting to separate two adjacent notes -->
 
->NOTE:
->For cases when either the alert or the receipt value specifies the `mailto:`
->protocol the following best practice is recommended for the corresponding
->return command message in email format.
+>NOTE: For cases when either the alert or the receipt value specifies the
+>`mailto:` protocol the following best practice is recommended for the
+>corresponding return command message in email format.
 >
 >1. Use a valid email address of an account associated with the system issuing
 >   the response for the sender and reply-to email addresses
