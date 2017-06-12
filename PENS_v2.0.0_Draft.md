@@ -200,7 +200,7 @@ interchange -- Representation of dates and times," Edition 2.
 ### 3. Definitions
 
 For purposes of this specification, the following terms and definitions apply.
-The AICC Glossary [A3], should be referenced for terms not defined here.
+The AICC Glossary \[A3], should be referenced for terms not defined here.
 
 #### 3.0 Terms
 
@@ -847,9 +847,9 @@ may allow some degree of package processing (may not be fatal errors).
 
 ### 1. Binding of PENS Message to a URI
 
-The PENS message shall be a valid URI [RFC 1738 and RFC 2396].
+The PENS message shall be a valid URI per RFC 1738 and RFC 2396.
 
-The URI shall consist of 4 components, as described in RFC 2396,
+The URI shall consist of 4 components, as described in RFC 2396:
 
 `<scheme>://<authority><path>?<query>`
 
@@ -1133,9 +1133,9 @@ Conceptual end of the stages of communication.
 
 ## Bibliography
 
-[A1]  AICC CMI001, CMI Guidelines For Interoperability, Version 3.4, April
+\[A1]  AICC CMI001, CMI Guidelines For Interoperability, Version 3.4, April
 2001.
 
-[A2]  SCORM – <http://www.adlnet.org>
+\[A2]  SCORM – <http://www.adlnet.org>
 
-[A3]  AICC CRS002, Glossary of Terms Related to Computer Based Training (CBT)
+\[A3]  AICC CRS002, Glossary of Terms Related to Computer Based Training (CBT)
